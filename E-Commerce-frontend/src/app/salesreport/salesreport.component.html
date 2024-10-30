@@ -1,0 +1,23 @@
+<div class="sales-report">
+    <h2 class="discount-header">Sales Report</h2>
+  
+    <p class="discount-header"><strong>Total Cart Price:</strong> {{ totalCartPrice | currency }}</p>
+    <p class="discount-header"><strong>Highest Quantity Product:</strong> {{ highestQuantityProductName }} (Quantity: {{ highestQuantityProductQuantity }})</p>
+  
+    <h3 class="discount-header">Product Total Prices</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of totalPriceByProduct | keyvalue">
+          <td>{{ product.key }}</td>
+          <td>{{ product.value | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

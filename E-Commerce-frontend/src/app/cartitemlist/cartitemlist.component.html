@@ -1,0 +1,32 @@
+<div class="cart-container">
+  <h2 class="discount-header">Cart Items</h2>
+  <h4 class="discount-header">Discounts Available for more than 10 products</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Cart Item ID</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>{{ item.cartItemID }}</td>
+        <td>{{ item.productID }}</td>
+        <td>{{ item.productName }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.totalPrice | currency }}</td>
+        <td>
+          <button (click)="removeItem(item)">Remove Item</button>
+        </td>
+        <td *ngIf="item.quantity > 10">
+          <button (click)="applyDiscount()">Apply 40% Discount</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Total Cart Price: {{ totalCartPrice | currency }}</h3>
+</div>

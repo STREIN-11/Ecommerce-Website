@@ -1,0 +1,27 @@
+<!-- src/app/product-list/product-list.component.html -->
+<div class="content">
+  <div>
+    <h2>Product List</h2>
+
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productID }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.price }}</td>
+        <td><button (click)="deleteProduct(product.productID)">Delete</button></td>
+        <td><button (click)="quantitySetter(product.productID)">Plus</button></td>
+        <td><button  (click) ="addToCart(product.productID,product.price,product.productName)" >Add to Cart</button></td>
+
+      </tr>
+    </table>
+  </div>
+</div>
+
+  
